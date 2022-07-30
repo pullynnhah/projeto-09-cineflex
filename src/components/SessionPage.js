@@ -10,8 +10,8 @@ import Sessions from "./Sessions";
 
 export default function SessionPage({uri}) {
   const [sessions, setSessions] = useState(null);
-
   const {idMovie} = useParams();
+
   useEffect(() => {
     const promise = axios.get(`${uri}/movies/${idMovie}/showtimes`);
     promise.then(response => setSessions(response.data));
