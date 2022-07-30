@@ -7,10 +7,9 @@ import Title from "../commons/Title";
 import Load from "../commons/Load";
 import Movies from "../Movies";
 
-export default function HomePage({uri, setIsHome}) {
+export default function HomePage({uri}) {
   const [movies, setMovies] = useState(null);
 
-  setIsHome(true);
   useEffect(() => {
     const promise = axios.get(`${uri}/movies`);
     promise.then(response => setMovies(response.data));

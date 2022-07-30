@@ -9,7 +9,7 @@ function Seat({name, id, isAvailable, buyers, orderSeats, setOrderSeats}) {
   const [settings, setSettings] = useState(isAvailable ? availableSettings : unavailableSettings);
 
   function canRemove() {
-    if (buyers[id]?.name || buyers[id]?.cpf) {
+    if (buyers[id]?.nome || buyers[id]?.cpf) {
       return window.confirm(`Deseja deletar dados do assento ${name}?`);
     }
     return true;
@@ -21,14 +21,13 @@ function Seat({name, id, isAvailable, buyers, orderSeats, setOrderSeats}) {
       if (settings.type === 0) {
         setSettings(selectedSettings);
         newOrderSeats.add(id);
-      } else {
+        setOrderSeats(newOrderSeats);
+      } else if (canRemove()) {
+        delete buyers[id];
+        newOrderSeats.delete(id);
         setSettings(availableSettings);
-        if (canRemove()) {
-          delete buyers[id];
-          newOrderSeats.delete(id);
-        }
+        setOrderSeats(newOrderSeats);
       }
-      setOrderSeats(newOrderSeats);
     } else {
       alert("Esse assento não está disponível");
     }

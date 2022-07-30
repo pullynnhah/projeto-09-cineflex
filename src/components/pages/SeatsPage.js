@@ -32,7 +32,6 @@ export default function SeatsPage({uri, movieData}) {
   movieData.time = seatsData.name;
   movieData.date = seatsData.day.date;
   movieData.buyers = buyers;
-  console.log(movieData);
   return (
     <Page>
       <Title color="#293845" weight={400}>
