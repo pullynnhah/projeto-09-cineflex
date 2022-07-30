@@ -7,7 +7,7 @@ import Page from "../commons/Page";
 import Seats from "../Seats";
 import Load from "../commons/Load";
 import BuyerForm from "../BuyerForm";
-import Banner from "../commons/Banner";
+import Footer from "../commons/Footer";
 
 export default function SeatsPage({uri, movieData}) {
   const [seatsData, setSeatsData] = useState(null);
@@ -49,7 +49,7 @@ export default function SeatsPage({uri, movieData}) {
         buyers={buyers}
         idNames={createObject(seatsData.seats)}
       />
-      <Banner>
+      <Footer>
         <div className="image-container">
           <img src={seatsData.movie.posterURL} alt="movie poster" />
         </div>
@@ -57,7 +57,7 @@ export default function SeatsPage({uri, movieData}) {
           <p>{seatsData.movie.title}</p>
           <p>{`${seatsData.day.weekday} - ${seatsData.name}`}</p>
         </div>
-      </Banner>
+      </Footer>
     </Page>
   );
 }

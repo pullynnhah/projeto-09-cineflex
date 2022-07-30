@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Banner = styled.footer`
+const Footer = styled.footer`
   width: 100vw;
   height: 117px;
 
@@ -42,4 +42,4 @@ const Banner = styled.footer`
   }
 `;
 
-export default Banner;
+export default Footer;

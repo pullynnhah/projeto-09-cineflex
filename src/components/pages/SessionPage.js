@@ -7,7 +7,7 @@ import Title from "../commons/Title";
 
 import Load from "../commons/Load";
 import Sessions from "../Sessions";
-import Banner from "../commons/Banner";
+import Footer from "../commons/Footer";
 
 export default function SessionPage({uri}) {
   const [sessions, setSessions] = useState(null);
@@ -28,12 +28,12 @@ export default function SessionPage({uri}) {
         <h2>Selecione o horário</h2>
       </Title>
       <Sessions sessions={sessions.days} />
-      <Banner>
+      <Footer>
         <div className="image-container">
           <img src={sessions.posterURL} alt="movie poster" />
         </div>
         <p>{sessions.title}</p>
-      </Banner>
+      </Footer>
     </Page>
   );
 }
