@@ -2,11 +2,12 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 
-import Title from "./commons/Title";
-import Page from "./commons/Page";
-import Seats from "./Seats";
-import Load from "./commons/Load";
-import BuyerForm from "./BuyerForm";
+import Title from "../commons/Title";
+import Page from "../commons/Page";
+import Seats from "../Seats";
+import Load from "../commons/Load";
+import BuyerForm from "../BuyerForm";
+import Banner from "../commons/Banner";
 
 export default function SeatsPage({uri}) {
   const [seatsData, setSeatsData] = useState(null);
@@ -43,6 +44,15 @@ export default function SeatsPage({uri}) {
         buyers={buyers}
         idNames={createObject(seatsData.seats)}
       />
+      <Banner>
+        <div className="image-container">
+          <img src={seatsData.movie.posterURL} alt="movie poster" />
+        </div>
+        <div>
+          <p>{seatsData.movie.title}</p>
+          <p>{`${seatsData.day.weekday} - ${seatsData.name}`}</p>
+        </div>
+      </Banner>
     </Page>
   );
 }

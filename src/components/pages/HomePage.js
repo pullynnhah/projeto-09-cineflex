@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
 
 import axios from "axios";
-import Page from "./commons/Page";
-import Title from "./commons/Title";
+import Page from "../commons/Page";
+import Title from "../commons/Title";
 
-import Load from "./commons/Load";
-import Movies from "./Movies";
+import Load from "../commons/Load";
+import Movies from "../Movies";
 
 export default function HomePage({uri}) {
   const [movies, setMovies] = useState(null);

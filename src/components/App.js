@@ -1,9 +1,9 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import styled from "styled-components";
-import HomePage from "./HomePage";
-import SessionPage from "./SessionPage";
-import SeatsPage from "./SeatsPage";
+import HomePage from "./pages/HomePage";
+import SessionPage from "./pages/SessionPage";
+import SeatsPage from "./pages/SeatsPage";
 
 export default function App() {
   const uri = "https://mock-api.driven.com.br/api/v7/cineflex/";
