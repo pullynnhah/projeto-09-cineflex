@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
-import Button from "./commons/Button";
+
 import styled from "styled-components";
+import Button from "./commons/Button";
 
 function Session({weekday, date, showtimes}) {
   return (
@@ -11,7 +12,7 @@ function Session({weekday, date, showtimes}) {
       <div className="btns">
         {showtimes.map((showtime, index) => (
           <Link to={`/assentos/${showtime.id}`} key={index}>
-            <Button>{showtime.name}</Button>
+            <SmallButton>{showtime.name}</SmallButton>
           </Link>
         ))}
       </div>
@@ -44,4 +45,9 @@ const SessionCard = styled.div`
     flex-wrap: wrap;
     gap: 8px;
   }
+`;
+
+const SmallButton = styled(Button)`
+  width: 83px;
+  height: 43px;
 `;
