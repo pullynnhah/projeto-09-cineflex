@@ -2,6 +2,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import styled from "styled-components";
 import HomePage from "./HomePage";
+import SessionPage from "./SessionPage";
 
 export default function App() {
   const uri = "https://mock-api.driven.com.br/api/v7/cineflex/";
@@ -12,6 +13,7 @@ export default function App() {
       </Header>
       <Routes>
         <Route path="/" element={<HomePage uri={uri} />} />
+        <Route path="/sessoes/:idMovie" element={<SessionPage uri={uri} />} />
       </Routes>
     </BrowserRouter>
   );
