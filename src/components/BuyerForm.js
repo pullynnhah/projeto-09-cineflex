@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import Button from "./commons/Button";
 import axios from "axios";
@@ -9,7 +10,7 @@ function BuyerInput({idSeat, idNames, buyers}) {
 
   function addToBuyers(id, type, value) {
     if (!buyers[id]) {
-      buyers[id] = {idAssento: id};
+      buyers[id] = {idAssento: id, number: idNames[id]};
     }
     buyers[id][type] = value;
   }
@@ -40,6 +41,8 @@ function BuyerInput({idSeat, idNames, buyers}) {
 }
 
 export default function BuyerForm({uri, idSeats, buyers, idNames}) {
+  const navigate = useNavigate();
+
   function postAPI(e) {
     e.preventDefault();
     const data = {
@@ -47,9 +50,8 @@ export default function BuyerForm({uri, idSeats, buyers, idNames}) {
       compradores: Object.values(buyers),
     };
 
-    console.log(data);
-    const promise = axios.post(`${uri}/seats/book-many`, data);
-    promise.then(response => console.log(response.data));
+    axios.post(`${uri}/seats/book-many`, data);
+    navigate("/sucesso");
   }
 
   return (

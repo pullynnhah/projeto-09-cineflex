@@ -41,7 +41,7 @@ function Seat({name, id, isAvailable, buyers, orderSeats, setOrderSeats}) {
   );
 }
 
-export default function Seats({seats, orderSeats, setOrderSeats, buyers, setBuyers}) {
+export default function Seats({seats, orderSeats, setOrderSeats, buyers}) {
   const settings = [
     {setting: selectedSettings, text: "Selecionado"},
     {setting: availableSettings, text: "Disponível"},

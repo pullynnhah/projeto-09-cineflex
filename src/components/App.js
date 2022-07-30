@@ -4,9 +4,11 @@ import styled from "styled-components";
 import HomePage from "./pages/HomePage";
 import SessionPage from "./pages/SessionPage";
 import SeatsPage from "./pages/SeatsPage";
+import SuccessPage from "./pages/SuccessPage";
 
 export default function App() {
   const uri = "https://mock-api.driven.com.br/api/v7/cineflex/";
+  const movieData = {};
   return (
     <BrowserRouter>
       <Header>
@@ -15,7 +17,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage uri={uri} />} />
         <Route path="/sessoes/:idMovie" element={<SessionPage uri={uri} />} />
-        <Route path="/assentos/:idSession" element={<SeatsPage uri={uri} />} />
+        <Route
+          path="/assentos/:idSession"
+          element={<SeatsPage uri={uri} const movieData={movieData} />}
+        />
+        <Route path="/sucesso" element={<SuccessPage movieData={movieData} />} />
       </Routes>
     </BrowserRouter>
   );

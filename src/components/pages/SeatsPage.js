@@ -9,7 +9,7 @@ import Load from "../commons/Load";
 import BuyerForm from "../BuyerForm";
 import Banner from "../commons/Banner";
 
-export default function SeatsPage({uri}) {
+export default function SeatsPage({uri, movieData}) {
   const [seatsData, setSeatsData] = useState(null);
   const [idSeats, setIdSeats] = useState(new Set());
 
@@ -27,6 +27,12 @@ export default function SeatsPage({uri}) {
   if (seatsData === null) {
     return <Load />;
   }
+
+  movieData.title = seatsData.movie.title;
+  movieData.time = seatsData.name;
+  movieData.date = seatsData.day.date;
+  movieData.buyers = buyers;
+  console.log(movieData);
   return (
     <Page>
       <Title color="#293845" weight={400}>
