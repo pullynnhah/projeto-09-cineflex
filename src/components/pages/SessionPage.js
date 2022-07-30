@@ -9,10 +9,11 @@ import Load from "../commons/Load";
 import Sessions from "../Sessions";
 import Banner from "../commons/Banner";
 
-export default function SessionPage({uri}) {
+export default function SessionPage({uri, setIsHome}) {
   const [sessions, setSessions] = useState(null);
   const {idMovie} = useParams();
 
+  setIsHome(false);
   useEffect(() => {
     const promise = axios.get(`${uri}/movies/${idMovie}/showtimes`);
     promise.then(response => setSessions(response.data));
