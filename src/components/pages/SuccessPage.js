@@ -3,11 +3,10 @@ import Title from "../commons/Title";
 import styled from "styled-components";
 import Button from "../commons/Button";
 import {Link} from "react-router-dom";
-import page from "../commons/Page";
 
 export default function SuccessPage({movieData}) {
   function formatCPF(cpf) {
-    return cpf.slice(0, 3) + "." + cpf.slice(3, 6) + "." + cpf.slice(6, 9) + "-" + cpf.slice(9);
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
   }
 
   return (
