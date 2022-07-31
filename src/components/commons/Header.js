@@ -1,13 +1,19 @@
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 import styled from "styled-components";
 import leftArrow from "../../assets/images/left.jpg";
 
-export default function Header({}) {
+export default function Header({back}) {
   const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <Heading>
-      <img src={leftArrow} alt="setinha" onClick={() => navigate(-1)} />
+      {location.pathname !== "/" ? (
+        <img src={leftArrow} alt="setinha" onClick={() => navigate(-1)} />
+      ) : (
+        ""
+      )}
       <h1>Cineflex</h1>
     </Heading>
   );
@@ -22,14 +28,16 @@ const Heading = styled.header`
   right: 0;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   background: #c3cfd9;
 
   img {
-    width: 40px;
-    padding-left: 10px;
+    width: 29px;
+    position: fixed;
+    top: 19px;
+    left: 10px;
   }
 
   img:hover {

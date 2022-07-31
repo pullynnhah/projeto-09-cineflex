@@ -1,7 +1,5 @@
 import {useState} from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-
-import arrow from "../assets/images/left.jpg";
+import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom";
 
 import Header from "./commons/Header";
 import HomePage from "./pages/HomePage";
@@ -13,7 +11,6 @@ export default function App() {
   const uri = "https://mock-api.driven.com.br/api/v7/cineflex/";
   const movieData = {};
 
-  const [back, setBack] = useState(false);
   return (
     <BrowserRouter>
       <Header />
