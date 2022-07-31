@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import {useState} from "react";
+import styled from "styled-components";
 
 const availableSettings = {color: "#C3CFD9", borderColor: "#7B8B99", cursor: "pointer", type: 0};
 const unavailableSettings = {color: "#FBE192", borderColor: "#F7C52B", cursor: "initial"};

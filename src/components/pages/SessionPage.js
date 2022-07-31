@@ -4,10 +4,10 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import Page from "../commons/Page";
 import Title from "../commons/Title";
+import Footer from "../commons/Footer";
 
 import Load from "../commons/Load";
 import Sessions from "../Sessions";
-import Footer from "../commons/Footer";
 
 export default function SessionPage({uri}) {
   const [sessions, setSessions] = useState(null);

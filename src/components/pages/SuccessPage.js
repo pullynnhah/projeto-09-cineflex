@@ -1,8 +1,9 @@
+import {Link} from "react-router-dom";
+
 import Page from "../commons/Page";
 import Title from "../commons/Title";
 import styled from "styled-components";
 import Button from "../commons/Button";
-import {Link} from "react-router-dom";
 
 export default function SuccessPage({movieData}) {
   function formatCPF(cpf) {

@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import axios from "axios";
 
+import axios from "axios";
 import Title from "../commons/Title";
 import Page from "../commons/Page";
+import Footer from "../commons/Footer";
+
 import Seats from "../Seats";
 import Load from "../commons/Load";
 import BuyerForm from "../BuyerForm";
-import Footer from "../commons/Footer";
 
 export default function SeatsPage({uri, movieData}) {
   const [seatsData, setSeatsData] = useState(null);
