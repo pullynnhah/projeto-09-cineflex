@@ -3,7 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import leftArrow from "../../assets/images/left.jpg";
 
-export default function Header({back}) {
+export default function Header({}) {
   const navigate = useNavigate();
   const location = useLocation();
 
