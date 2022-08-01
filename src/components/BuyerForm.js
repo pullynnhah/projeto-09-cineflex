@@ -5,35 +5,31 @@ import styled from "styled-components";
 import Button from "./commons/Button";
 import axios from "axios";
 
-function BuyerInput({idSeat, idNames, buyers}) {
-  const [name, setName] = useState("");
-  const [cpf, setCPF] = useState("");
-
-  function addToBuyers(id, type, value) {
-    if (!buyers[id]) {
-      buyers[id] = {idAssento: id, number: idNames[id]};
-    }
-    buyers[id][type] = value;
-  }
-
+function BuyerInput({idSeat, idNames, buyers, names, setNames, cpfs, setCPFs}) {
+  buyers[idSeat] = {
+    idAssento: idSeat,
+    number: idNames[idSeat],
+    nome: names[idSeat] ?? "",
+    cpf: cpfs[idSeat] ?? "",
+  };
   return (
     <Input>
       <h3>Assento {idNames[idSeat]}</h3>
       <label>Nome do comprador:</label>
       <input
         type="text"
-        value={name}
-        onChange={e => setName(e.target.value)}
-        onBlur={() => addToBuyers(idSeat, "nome", name)}
+        value={names[idSeat] ?? ""}
+        onChange={e => setNames({...names, [idSeat]: e.target.value})}
+        onBlur={() => (buyers[idSeat].nome = names[idSeat])}
         placeholder="Digite seu nome..."
         required
       />
       <label>CPF do comprador:</label>
       <input
         type="text"
-        value={cpf}
-        onChange={e => setCPF(e.target.value)}
-        onBlur={() => addToBuyers(idSeat, "cpf", cpf)}
+        value={cpfs[idSeat] ?? ""}
+        onChange={e => setCPFs({...cpfs, [idSeat]: e.target.value})}
+        onBlur={() => (buyers[idSeat].cpf = cpfs[idSeat])}
         placeholder="Digite seu CPF..."
         required
       />
@@ -43,6 +39,8 @@ function BuyerInput({idSeat, idNames, buyers}) {
 
 export default function BuyerForm({uri, idSeats, buyers, idNames}) {
   const navigate = useNavigate();
+  const [names, setNames] = useState({});
+  const [cpfs, setCPFs] = useState({});
 
   function postAPI(e) {
     e.preventDefault();
@@ -60,7 +58,16 @@ export default function BuyerForm({uri, idSeats, buyers, idNames}) {
       {[...idSeats]
         .sort((a, b) => a - b)
         .map((idSeat, index) => (
-          <BuyerInput idSeat={idSeat} idNames={idNames} key={index} buyers={buyers} />
+          <BuyerInput
+            idSeat={idSeat}
+            idNames={idNames}
+            key={index}
+            buyers={buyers}
+            names={names}
+            setNames={setNames}
+            cpfs={cpfs}
+            setCPFs={setCPFs}
+          />
         ))}
       <div>{idSeats.size !== 0 ? <Button>Reservar assento(s)</Button> : ""}</div>
     </Form>
